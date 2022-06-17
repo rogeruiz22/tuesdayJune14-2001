@@ -21,43 +21,7 @@ public class AppTest {
         Thread.sleep(1000);
 
         Assert.assertEquals(message, "Success", "Internet Issues");
-    }
 
-    @Test
-    public void verifyIntranetSuccessfulLogin() throws Exception {
-        driver.get("https://oktana.force.com/s/");
-
-        Thread.sleep(1000);
-
-        WebElement oktanaGmailLoginButton = driver.findElement(By.xpath("//button[@title='Oktana_Gmail']"));
-        oktanaGmailLoginButton.click();
-
-        Thread.sleep(2000);
-
-        WebElement emailField = driver.findElement(By.xpath("//input[@type='email']"));
-        emailField.sendKeys("roger.ruiz@oktana.com");
-
-        WebElement nextButton = driver.findElement(By.xpath("//span[contains(text(), 'Next')]"));
-        nextButton.click();
-
-        Thread.sleep(2000);
-
-        WebElement passwordField = driver.findElement(By.xpath("//input[@type='password']"));
-        passwordField.sendKeys("Oktana@987632149");
-
-        WebElement passwordNextButton = driver.findElement(By.xpath("//span[contains(text(), 'Next')]/ancestor::button"));
-        passwordNextButton.click();
-
-        Thread.sleep(25000);
-
-        String pageTitle = driver.getTitle();
-
-        Assert.assertEquals(pageTitle, "Home", "You didn't accept the 2 verification step with your phone");
-
-    }
-
-    @AfterTest
-    public void tearDown() {
         driver.quit();
     }
 }
