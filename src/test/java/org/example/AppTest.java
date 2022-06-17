@@ -18,7 +18,7 @@ public class AppTest {
 
         String message = labelMessage.getText();
 
-        Thread.sleep(1000);
+        Thread.sleep(3000);
 
         Assert.assertEquals(message, "Success", "Internet Issues");
 
